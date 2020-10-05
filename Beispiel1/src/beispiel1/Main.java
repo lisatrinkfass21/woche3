@@ -18,11 +18,9 @@ import java.util.stream.Collectors;
  */
 public class Main {
 
-    private List<Weapon> list = new LinkedList<>();
-
     public static void Main(String[] args) throws IOException {
-        Main main = new Main();
-        main.list = Files.lines(new File("weapons.csv").toPath())
+        List<Weapon> list = new LinkedList<>();
+        list = Files.lines(new File("weapons.csv").toPath())
                 .skip(1)
                 .map(s -> s.split(";"))
                 .map(s -> new Weapon(
@@ -38,16 +36,24 @@ public class Main {
 
     }
 
-    public List<Weapon> getList() {
-        return list;
-    }
-
-    public void List<Weapon
-
-    > sortList() {
+    public void sort1(LinkedList<Weapon> list) {
         list.sort((w1, w2) -> Integer.compare(w1.getDamage(), w2.getDamage()));
     }
 
-;
+    public void sort2(LinkedList<Weapon> list) {
+        list.sort((Weapon w1, Weapon w2) -> {
+            if (w1.getCombatType().compareTo(w2.getCombatType()) == 0) {
+                if (w1.getDamageType().compareTo(w2.getDamageType()) == 0) {
+                    return w1.getName().compareTo(w2.getName());
+                } else {
+                    return w1.getDamageType().compareTo(w2.getDamageType());
+                }
+            }
+
+            return w1.getCombatType().compareTo(w2.getCombatType());
+
+        });
+
+    }
 
 }
