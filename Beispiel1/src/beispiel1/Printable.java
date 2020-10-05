@@ -1,6 +1,4 @@
-
-import beispiel1.Weapon;
-
+package beispiel1;
 
 /**
  *

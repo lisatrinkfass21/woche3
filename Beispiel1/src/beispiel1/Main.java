@@ -34,13 +34,18 @@ public class Main {
         ))
                 .collect(Collectors.toList());
 
+        Main.sort2(list);
+
+        Printable pr = w -> System.out.println(w.getName() + " [" + w.getDamageType() + " = " + w.getDamage() + "]");
+        list.forEach(a -> pr.print(a));
+
     }
 
-    public void sort1(LinkedList<Weapon> list) {
+    public static void sort1(List<Weapon> list) {
         list.sort((w1, w2) -> Integer.compare(w1.getDamage(), w2.getDamage()));
     }
 
-    public void sort2(LinkedList<Weapon> list) {
+    public static void sort2(List<Weapon> list) {
         list.sort((Weapon w1, Weapon w2) -> {
             if (w1.getCombatType().compareTo(w2.getCombatType()) == 0) {
                 if (w1.getDamageType().compareTo(w2.getDamageType()) == 0) {
