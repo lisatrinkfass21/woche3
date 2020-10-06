@@ -39,6 +39,9 @@ public class Main {
         Printable pr = w -> System.out.println(w.getName() + " [" + w.getDamageType() + " = " + w.getDamage() + "]");
         list.forEach(a -> pr.print(a));
 
+        //Beispiel 1.6 fehlt noch
+        //Beispiel 1.2 fehlt noch UnitTest
+        //Beispiel 1.3 fehlt noch UnitTest
     }
 
     public static void sort1(List<Weapon> list) {

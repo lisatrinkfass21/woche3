@@ -3,11 +3,15 @@ package beispiel2;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Streams {
 
     public double average(int[] numbers) {
-        //implement this
+        double result = Arrays.stream(numbers)
+                .reduce(0, (a, b) -> a + b) / (double) numbers.length;
+
+        return result;
     }
 
     public List<String> upperCase(String[] strings) {
