@@ -2,6 +2,7 @@ package beispiel2;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -15,7 +16,11 @@ public class Streams {
     }
 
     public List<String> upperCase(String[] strings) {
-        //implement this
+        List<String> arr = Arrays.asList(strings).stream()
+                .map(String::toUpperCase)
+                .collect(Collectors.toList());
+        return arr;
+
     }
 
     public Weapon findWeaponWithLowestDamage(List<Weapon> weapons) {
