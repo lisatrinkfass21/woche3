@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
  */
 public class Main {
 
-    public static void Main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
         List<Weapon> list = new LinkedList<>();
         list = Files.lines(new File("weapons.csv").toPath())
                 .skip(1)
