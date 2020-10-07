@@ -36,8 +36,9 @@ public class Main {
 
         Main.sort2(list);
 
-        //Printable pr = w -> System.out.println(w.getName() + " [" + w.getDamageType() + " = " + w.getDamage() + "]");
-        //list.forEach(a -> pr.print(a));
+        Printable pr = w -> System.out.println(w.getName() + " [" + w.getDamageType() + " = " + w.getDamage() + "]");
+        list.forEach(a -> pr.print(a));
+
         System.out.println("---------------------+------------+-------------+---------+-------+---------+----------+");
         System.out.printf("%-20s", " | " + "Name");
         System.out.printf("%-13s", " | " + "CombatType");
