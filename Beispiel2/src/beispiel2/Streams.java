@@ -28,13 +28,13 @@ public class Streams {
     public Weapon findWeaponWithLowestDamage(List<Weapon> weapons) {
         return weapons.stream()
                 .min(Comparator.comparing(Weapon::getDamage))
-                .orElse(weapons.get(0));
+                .orElse(null);
     }
 
     public Weapon findWeaponWithHighestStrength(List<Weapon> weapons) {
         return weapons.stream()
                 .max(Comparator.comparing(Weapon::getMinStrength))
-                .orElse(weapons.get(0));
+                .orElse(null);
     }
 
     public List<Weapon> collectMissileWeapons(List<Weapon> weapons) {
@@ -46,7 +46,7 @@ public class Streams {
     public Weapon findWeaponWithLongestName(List<Weapon> weapons) {
         return weapons.stream()
                 .max(Comparator.comparing((Weapon w) -> w.getName().length()))
-                .orElse(weapons.get(0));
+                .orElse(null);
 
     }
 
@@ -82,7 +82,6 @@ public class Streams {
 
     public void increaseValuesByTenPercent(List<Weapon> weapons) {
         weapons.stream()
-                .mapToDouble(Weapon::getValue)
-                .forEach(a -> a.setValue((int) (a.getValue() * 1.1)));
+                .forEach((a) -> a.setValue((int) (a.getValue() * 1.1)));
     }
 }
