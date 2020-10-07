@@ -34,7 +34,9 @@ public class Main {
         ))
                 .collect(Collectors.toList());
 
-        Main.sort2(list);
+        Main.sort1(list);
+
+        System.out.println("");
 
         Printable pr = w -> System.out.println(w.getName() + " [" + w.getDamageType() + " = " + w.getDamage() + "]");
         list.forEach(a -> pr.print(a));
@@ -48,6 +50,8 @@ public class Main {
         System.out.printf("%-10s", " | " + "Length");
         System.out.printf("%-11s", " | " + "Value");
         System.out.printf("%-3s %n", " | ");
+
+        Main.sort2(list);
 
         Printable tab = e -> {
             System.out.println("---------------------+------------+-------------+---------+-------+---------+----------+");
@@ -65,23 +69,22 @@ public class Main {
 
     }
 
-//Beispiel 1.2 fehlt noch UnitTest
 //Beispiel 1.3 fehlt noch UnitTest
     public static void sort1(List<Weapon> list) {
-        list.sort((w1, w2) -> Integer.compare(w1.getDamage(), w2.getDamage()));
+        list.sort((w1, w2) -> Integer.compare(w2.getDamage(), w1.getDamage()));
     }
 
     public static void sort2(List<Weapon> list) {
         list.sort((Weapon w1, Weapon w2) -> {
-            if (w1.getCombatType().compareTo(w2.getCombatType()) == 0) {
-                if (w1.getDamageType().compareTo(w2.getDamageType()) == 0) {
+            if (w1.getCombatType().name().compareTo(w2.getCombatType().name()) == 0) {
+                if (w1.getDamageType().name().compareTo(w2.getDamageType().name()) == 0) {
                     return w1.getName().compareTo(w2.getName());
                 } else {
-                    return w1.getDamageType().compareTo(w2.getDamageType());
+                    return w1.getDamageType().name().compareTo(w2.getDamageType().name());
                 }
             }
 
-            return w1.getCombatType().compareTo(w2.getCombatType());
+            return w1.getCombatType().name().compareTo(w2.getCombatType().name());
 
         });
 
