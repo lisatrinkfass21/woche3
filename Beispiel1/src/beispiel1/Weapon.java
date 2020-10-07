@@ -50,7 +50,7 @@ public class Weapon {
         return minStrength;
     }
 
-    public int getValue() {
+    public double getValue() {
         return value;
     }
 
