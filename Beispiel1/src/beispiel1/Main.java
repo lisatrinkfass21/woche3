@@ -39,7 +39,19 @@ public class Main {
         Printable pr = w -> System.out.println(w.getName() + " [" + w.getDamageType() + " = " + w.getDamage() + "]");
         list.forEach(a -> pr.print(a));
 
-        //Beispiel 1.6 fehlt noch
+        Printable pr2 = (Weapon p) -> {
+            System.out.println("-----------------------------------------------------------------");
+            p.forEach(a -> {
+                System.out.printf("%-20s", " | " + a.getName());
+                System.out.printf("%-9s", " | " + a.getCombatType());
+                System.out.printf("%-11s ", " | " + a.getDamageType());
+                System.out.printf("%-6s", " | " + a.getDamage());
+                System.out.printf("%-3s", " | " + a.getSpeed());
+                System.out.printf("%-6s", " | " + a.getStrength());
+                System.out.printf("%-7s %n", " | " + a.getValue());
+            });
+
+        };
         //Beispiel 1.2 fehlt noch UnitTest
         //Beispiel 1.3 fehlt noch UnitTest
     }
