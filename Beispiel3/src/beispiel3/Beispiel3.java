@@ -11,8 +11,6 @@ package beispiel3;
  */
 public class Beispiel3 {
 
-    final Predicate<Integer> isEven;
-
     public static void main(String[] args) {
 
     }
