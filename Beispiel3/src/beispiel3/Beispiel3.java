@@ -23,7 +23,7 @@ public class Beispiel3 {
         list.add(7);
         list.add(-8);
         list.add(0);
-        //   list.add(null);
+        //list.add(null);
 
         List<String> list2 = new LinkedList<String>();
         list2.add("abc");
@@ -38,20 +38,24 @@ public class Beispiel3 {
         final Predicate<Integer> isNull = e -> e == null;
         final Predicate<String> isShortWord = e -> e.length() < 4;
 
-        list.stream()
-                .filter(isEven)
-                .collect(Collectors.toList())
-                .forEach(e -> System.out.println(e + " ist gerade"));
+        try {
+            list.stream()
+                    .filter(isEven)
+                    .collect(Collectors.toList())
+                    .forEach(e -> System.out.println(e + " ist gerade"));
 
-        list.stream()
-                .filter(isPositive)
-                .collect(Collectors.toList())
-                .forEach(e -> System.out.println(e + " ist positiv"));
+            list.stream()
+                    .filter(isPositive)
+                    .collect(Collectors.toList())
+                    .forEach(e -> System.out.println(e + " ist positiv"));
 
-        list.stream()
-                .filter(isNumberNull)
-                .collect(Collectors.toList())
-                .forEach(e -> System.out.println(e + " hat den Wert Null"));
+            list.stream()
+                    .filter(isNumberNull)
+                    .collect(Collectors.toList())
+                    .forEach(e -> System.out.println(e + " hat den Wert Null"));
+        } catch (Exception e) {
+            System.out.println("Liste enthält null Werte");
+        }
 
         list.stream()
                 .filter(isNull)
@@ -63,16 +67,20 @@ public class Beispiel3 {
                 .collect(Collectors.toList())
                 .forEach(e -> System.out.println(e + " hat weniger als 4 Buchstaben"));
 
-        list.stream()
-                .filter(isPositive.and(isEven))
-                .collect(Collectors.toList())
-                .forEach(e -> System.out.println(e + " ist positiv und gerade"));
+        try {
 
-        list.stream()
-                .filter(isPositive.and(isEven.negate()))
-                .collect(Collectors.toList())
-                .forEach(e -> System.out.println(e + " ist positiv und ungerade"));
+            list.stream()
+                    .filter(isPositive.and(isEven))
+                    .collect(Collectors.toList())
+                    .forEach(e -> System.out.println(e + " ist positiv und gerade"));
+
+            list.stream()
+                    .filter(isPositive.and(isEven.negate()))
+                    .collect(Collectors.toList())
+                    .forEach(e -> System.out.println(e + " ist positiv und ungerade"));
+        } catch (Exception e) {
+            System.out.println("Liste enthält null Werte");
+        }
 
     }
-
 }
