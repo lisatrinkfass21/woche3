@@ -7,6 +7,7 @@ package beispiel2;
 
 import java.io.File;
 import java.io.IOException;
+import static java.lang.Math.random;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.util.LinkedList;
@@ -27,16 +28,31 @@ public class Main {
 
         int[] randomNumbers = new int[1000];
         String[] randomStrings = new String[10];
-        byte[] arr = new byte[10];
 
         for (int i = 0; i < randomNumbers.length; i++) {
             randomNumbers[i] = (int) (Math.random() * 100);
         }
 
-        for (int i = 0; i < randomStrings.length; i++) {
-            new Random().nextBytes(arr);
-            randomStrings[i] = new String(arr, Charset.forName("UTF-8"));
+        String charsl = "abcdefghijklmnopqrstuvwxyz";
+        String charsu = charsl.toUpperCase();
+        String num = "0123456789";
+        String da = charsl + charsu + num;
 
+        Random random = new Random();
+
+        for (int e = 0; e < randomStrings.length; e++) {
+            StringBuilder sb = new StringBuilder(10);
+            for (int i = 0; i < 10; i++) {
+                int ranChar = random.nextInt(da.length());
+                char randChar = da.charAt(ranChar);
+                sb.append(randChar);
+            }
+            randomStrings[e] = sb.toString();
+
+        }
+
+        for (int i = 0; i < randomStrings.length; i++) {
+            System.out.println(randomStrings[i]);
         }
 
         List<Weapon> list = new LinkedList<>();

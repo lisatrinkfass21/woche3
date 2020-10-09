@@ -11,4 +11,8 @@ package beispiel5;
  */
 public interface Mapper<S, T> {
 
+    map();
+    default mapAll
+
+
 }

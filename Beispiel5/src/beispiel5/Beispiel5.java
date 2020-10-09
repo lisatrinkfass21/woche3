@@ -29,5 +29,15 @@ public class Beispiel5 implements Mapper<String, Integer> {
     }
 
     //Was ist von Defaultmethoden in Applikationsklassen zu halten?
+    //Defaultmethoden(Defender-Methoden) dienen dazu, dass Klassen, die ein Interface implementieren, nicht
+    //unbedingt alle Methoden implementieren müssen. Diese Methoden sind die Standard-Funktionen des Interfaces, die aufgerufen werden
+    //wenn die Funktionen vom Interface von den Unterklassen nicht überschrieben werden.
+    // beginnt mit Schlüsselwort default
     //Welche Vorteile bringen diese, welche Fallstricke sollte man bedenken?
+    //Vorteil ist auf jedenfall, dass nicht alle Methoden implementiert werden müssen
+    //Nachteil : kein Zugriff auf Objektvariablen
+    @Override
+    public void map() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
