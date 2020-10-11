@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Lisa
  */
-public class Beispiel5 implements Mapper<String, Integer> {
+public class Beispiel5 {
 
     /**
      * @param args the command line arguments
@@ -36,8 +36,4 @@ public class Beispiel5 implements Mapper<String, Integer> {
     //Welche Vorteile bringen diese, welche Fallstricke sollte man bedenken?
     //Vorteil ist auf jedenfall, dass nicht alle Methoden implementiert werden müssen
     //Nachteil : kein Zugriff auf Objektvariablen
-    @Override
-    public void map() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

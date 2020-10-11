@@ -5,14 +5,21 @@
  */
 package beispiel5;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 /**
  *
  * @author Lisa
  */
 public interface Mapper<S, T> {
 
-    map();
-    default mapAll
+    public T map(S s);
 
+    default List<T> mapAll(List<S> list) {
+        return list.stream()
+                .map(a -> map(a))
+                .collect(Collectors.toList());
+    }
 
 }
